@@ -1,11 +1,11 @@
 steps:
   # Build Docker image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'europe-west4-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA', '.']
+    args: ['build', '-t', 'europe-west1-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA', '.']
   
   # Push image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'europe-west4-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA']
+    args: ['push', 'europe-west1-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA']
   
   # Deploy to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -15,13 +15,13 @@ steps:
       - 'deploy'
       - 'my-app'
       - '--image'
-      - 'europe-west4-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA'
+      - 'europe-west1-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA'
       - '--region'
-      - 'europe-west4'
+      - 'europe-west1'
       - '--allow-unauthenticated'
 
 images:
-  - 'europe-west4-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA'
+  - 'europe-west1-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA'
 
 options:
   logging: CLOUD_LOGGING_ONLY
