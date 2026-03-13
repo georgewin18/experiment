@@ -9,7 +9,7 @@ import (
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	fmt.Fprintf(w, "<body style=\"background-color: blue; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: sans-serif;\">\n\t\t<h1>V2 - Hello Future!</h1>\n\t</body>\n")
+	fmt.Fprintf(w, "<body style=\"background-color: blue; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: sans-serif;\">\n\t\t<h1>V1 - Halo Dunia Tech Masa Depan!</h1>\n\t</body>\n")
 }
 
 func main() {
